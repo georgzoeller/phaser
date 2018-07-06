@@ -534,14 +534,22 @@ var Tilemap = new Class({
 
             if (obj.gid !== undefined && typeof id === 'number' && obj.gid === id ||
                 obj.id !== undefined && typeof id === 'number' && obj.id === id ||
-                obj.name !== undefined && typeof id === 'string' && obj.name === id)
+                obj.name !== undefined && typeof id === 'string' && obj.name === id ||
+                obj.name !== undefined && typeof id === 'string' && obj.name == id && id =="*"
+            )
             {
                 found = true;
             }
 
             if (found)
             {
-                var config = Extend({}, spriteConfig, obj.properties);
+                var props = {}
+                for (i=0; i<obj.properties.length; i++)
+                {
+                    props[obj.properties[i].name] = props[obj.properties[i].value]
+                }
+
+                var config = Extend({}, spriteConfig, props);
 
                 config.x = obj.x;
                 config.y = obj.y;
