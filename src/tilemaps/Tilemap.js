@@ -535,7 +535,7 @@ var Tilemap = new Class({
             if (obj.gid !== undefined && typeof id === 'number' && obj.gid === id ||
                 obj.id !== undefined && typeof id === 'number' && obj.id === id ||
                 obj.name !== undefined && typeof id === 'string' && obj.name === id ||
-                obj.name !== undefined && typeof id === 'string' && obj.name == id && id =="*"
+                typeof id === 'string' && id == "*"
             )
             {
                 found = true;
